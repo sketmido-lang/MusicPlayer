@@ -1,5 +1,7 @@
 yt-dlp
-pillow
+Pillow
+easy-pil
+requests
 aiohttp
 aiofiles
 tgcrypto
