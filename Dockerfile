@@ -1,5 +1,5 @@
 # 1. التغيير لـ bookworm لحل مشكلة الـ 404 (أهم خطوة)
-FROM python:3.9-slim-bookworm
+FROM python:3.10-slim-bookworm
 
 # 2. تحديث وتثبيت الأدوات في سطر واحد لتقليل حجم النسخة
 RUN apt update && apt upgrade -y && \
