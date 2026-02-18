@@ -1,13 +1,13 @@
 yt-dlp
-Pillow
-easy-pil
+Pillow==10.4.0
+easy-pil==0.4.0
 requests
 aiohttp
 aiofiles
 tgcrypto
 py-tgcalls
 python-dotenv
-spotipy
 youtube-search-python
 httpx
+spotipy
 https://github.com/PyrogramMod/PyrogramMod/archive/refs/heads/main.zip
