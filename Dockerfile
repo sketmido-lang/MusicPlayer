@@ -1,24 +1,23 @@
-FROM python:3.9-slim-buster
+# 1. التغيير لـ bookworm لحل مشكلة الـ 404 (أهم خطوة)
+FROM python:3.9-slim-bookworm
 
-# Updating Packages
-RUN apt update && apt upgrade -y
-RUN apt install git curl python3-pip ffmpeg -y
+# 2. تحديث وتثبيت الأدوات في سطر واحد لتقليل حجم النسخة
+RUN apt update && apt upgrade -y && \
+    apt install git curl ffmpeg -y
 
-# Copying Requirements
-COPY requirements.txt /requirements.txt
+# 3. إعداد مجلد العمل أولاً قبل نسخ أي ملفات (ترتيب أنظف)
+WORKDIR /app
 
-# Installing Requirements
-RUN cd /
+# 4. نسخ الـ requirements وتثبيتها
+COPY requirements.txt .
 RUN pip3 install --upgrade pip
-RUN pip3 install -U -r requirements.txt
+RUN pip3 install --no-cache-dir -U -r requirements.txt
 
-# Setting up working directory
-RUN mkdir /MusicPlayer
-WORKDIR /MusicPlayer
+# نسخ باقي ملفات المشروع للمجلد الحالي
+COPY . .
 
-# Preparing for the Startup
-COPY startup.sh /startup.sh
-RUN chmod +x /startup.sh
+# تجهيز ملف التشغيل
+RUN chmod +x startup.sh
 
-# Running Music Player Bot
-CMD ["/bin/bash", "/startup.sh"]
+# تشغيل البوت
+CMD ["/bin/bash", "startup.sh"]
