@@ -7,4 +7,4 @@ py-tgcalls
 python-dotenv
 youtube-search-python
 httpx
-pyrogram @ https://github.com/PyrogramMod/PyrogramMod/archive/refs/heads/main.zip
+https://github.com/PyrogramMod/PyrogramMod/archive/refs/heads/main.zip
