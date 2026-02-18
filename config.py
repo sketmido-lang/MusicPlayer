@@ -38,7 +38,7 @@ class Config:
         self.SPOTIFY: bool = False
         self.QUALITY: str = os.environ.get("QUALITY", "high").lower()
         self.PREFIXES: list = os.environ.get("PREFIX", "!").split()
-        self.LANGUAGE: str = os.environ.get("LANGUAGE", "en").lower()
+        self.LANGUAGE: str = os.environ.get("LANGUAGE", "ar").lower()
         self.STREAM_MODE: str = (
             "audio"
             if (os.environ.get("STREAM_MODE", "audio").lower() == "audio")
